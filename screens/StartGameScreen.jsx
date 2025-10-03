@@ -11,9 +11,13 @@ function StartGameScreen() {
             maxLength={2} 
             keyboardType="number-pad"
             />
-            <View styles={styles.button}>
+            <View style={styles.buttonContainer}>
+                <View style={styles.button}>
                 <PrimaryButton>Reset</PrimaryButton>
+                </View>
+                <View style={styles.button}>
                 <PrimaryButton>Confirm</PrimaryButton>
+                </View>
             </View>
         </View>
     )
@@ -33,8 +37,9 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         shadowOpacity: 0.25
     },
-    button: {
-        flexDirection: 'row'
+    buttonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center'
     },
     input: {
         margin: 8,
@@ -45,6 +50,9 @@ const styles = StyleSheet.create({
         color: '#91ADC8',
         fontWeight: 'bold',
         width: 50
+    },
+    button: {
+        flex:1
     }
 })
 
