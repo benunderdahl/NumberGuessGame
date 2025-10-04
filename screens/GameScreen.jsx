@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {View, Text, StyleSheet, Alert } from "react-native"
+import {View, Text, StyleSheet, Alert, FlatList } from "react-native"
 import Title from "../components/Title"
 import GameText from "../components/GameText"
 import PrimaryButton from "../components/PrimaryButton"
@@ -19,11 +19,17 @@ let maxBoundary = 100
 function GameScreen({userNum, onGameOver}) {
     const initialGuess = generateRandomNumber(1, 100, userNum)
     const [compGuess, setCompGuess] = useState(initialGuess)
+    const [guessRounds, setGuessRounds] = useState([initialGuess])
+   
     useEffect(() => {
         if (compGuess === userNum) {
             onGameOver()
         }
     }, [compGuess, userNum, onGameOver])
+    useEffect(() =>  {
+    minBoundary = 1
+    maxBoundary = 100
+    }, [])
     function nextGuessHandler(direction) {
         if ((direction === "lower" && compGuess < userNum) || 
         (direction === "greater" && compGuess > userNum)) {
@@ -36,6 +42,7 @@ function GameScreen({userNum, onGameOver}) {
         }
         const newRand = generateRandomNumber(minBoundary, maxBoundary, compGuess)
         setCompGuess(newRand)
+        setGuessRounds(prev => [...prev, newRand])
     }
     return <View style={styles.container}>
         <Title>Opponent's Guess</Title>
@@ -55,6 +62,9 @@ function GameScreen({userNum, onGameOver}) {
             </PrimaryButton>
             </View>
         </View>
+        <FlatList data={guessRounds} renderItem={(itemData) => {
+            <Text>{itemData.item}</Text>
+        }} keyExtractor={(item) => item}/>
     </View>
 }
 
