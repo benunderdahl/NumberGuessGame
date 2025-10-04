@@ -27,7 +27,9 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
     }, 
     outerContainer: {
         borderRadius: 30,

@@ -26,7 +26,7 @@ function StartGameScreen({ onPick }) {
     }
     return (
         <View>
-            <Title>Enter A Number</Title>
+            <Title style={styles.screenContainer}>Enter A Number</Title>
             <View style={styles.container}>
                 <TextInput 
                 style={ styles.input } 
@@ -51,7 +51,7 @@ function StartGameScreen({ onPick }) {
 const styles = StyleSheet.create({
     container: {
         alignItems: "center",
-        marginTop: 100,
+        marginTop: 50,
         marginHorizontal: 40,
         borderRadius: 15,
         padding: 30,
@@ -77,7 +77,11 @@ const styles = StyleSheet.create({
         width: 50
     },
     button: {
-        flex:1
+        flex:1,
+    },
+    screenContainer: {
+        flex: 1,
+        marginTop: 100,
     }
 })
 
