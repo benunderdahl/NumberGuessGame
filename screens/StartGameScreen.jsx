@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { TextInput, View, StyleSheet, Alert } from "react-native"
 import PrimaryButton from "../components/PrimaryButton"
+import Title from  "../components/Title"
 
 
 
@@ -24,20 +25,23 @@ function StartGameScreen({ onPick }) {
         setEnteredValue(enteredText)
     }
     return (
-        <View style={styles.container}>
-            <TextInput 
-            style={ styles.input } 
-            maxLength={2} 
-            keyboardType="number-pad"
-            value={enteredValue}
-            onChangeText={enteredValueHandler}
-            />
-            <View style={styles.buttonContainer}>
-                <View style={styles.button}>
-                <PrimaryButton onPress={resetInput}>Reset</PrimaryButton>
-                </View>
-                <View style={styles.button}>
-                <PrimaryButton onPress={confirmHandler} onPick={confirmHandler}>Confirm</PrimaryButton>
+        <View>
+            <Title>Enter A Number</Title>
+            <View style={styles.container}>
+                <TextInput 
+                style={ styles.input } 
+                maxLength={2} 
+                keyboardType="number-pad"
+                value={enteredValue}
+                onChangeText={enteredValueHandler}
+                />
+                <View style={styles.buttonContainer}>
+                    <View style={styles.button}>
+                    <PrimaryButton onPress={resetInput}>Reset</PrimaryButton>
+                    </View>
+                    <View style={styles.button}>
+                    <PrimaryButton onPress={confirmHandler} onPick={confirmHandler}>Confirm</PrimaryButton>
+                    </View>
                 </View>
             </View>
         </View>
