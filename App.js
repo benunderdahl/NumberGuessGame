@@ -5,10 +5,21 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from "./screens/GameScreen"
 import GameOverScreen from "./screens/GameOverScreen"
+import { useFonts } from 'expo-font'
+import AppLoading from "expo-app-loading";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState()
   const [gameOver, setGameOver] = useState()
+
+  const [fontsLoaded] = useFonts({
+    "open-sans-condensed": require("./assets/fonts/OpenSansCondensed_700Bold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
+
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber)
     setGameOver(false)

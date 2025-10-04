@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20,
         fontWeight: 'bold',
+        fontFamily: 'open-sans-condensed'
     }, 
     outerContainer: {
         borderRadius: 30,

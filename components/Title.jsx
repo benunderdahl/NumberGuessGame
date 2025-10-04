@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
         borderWidth: 2, 
         borderColor: '#45928154',
         margin: 20,
-        padding: 20
+        padding: 20,
+        fontFamily: 'open-sans-condensed'
     }
 })
 

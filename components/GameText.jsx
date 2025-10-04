@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         color: 'Blue',
         fontWeight: "bold",
         fontSize: 24,
+        fontFamily: 'open-sans-condensed'
     }
 })
 
