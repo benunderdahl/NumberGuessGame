@@ -24,7 +24,7 @@ function GameScreen({userNum, onGameOver}) {
    
     useEffect(() => {
         if (compGuess === userNum) {
-            onGameOver()
+            onGameOver(guessRounds.length)
         }
     }, [compGuess, userNum, onGameOver])
     useEffect(() =>  {

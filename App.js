@@ -26,8 +26,9 @@ export default function App() {
     setGameOver(false)
     console.log(pickedNumber)
   }
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds) {
     setGameOver(true)
+    setRounds(numberOfRounds)
   }
   function restartGameHandler() {
     setUserNumber(null)
