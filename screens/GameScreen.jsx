@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Alert } from "react-native"
 import Title from "../components/Title"
 import GameText from "../components/GameText"
 import PrimaryButton from "../components/PrimaryButton"
+import  Ionicons  from '@expo/vector-icons/Ionicons'
 
 function generateRandomNumber(min, max, exclude) {
         const rand = Math.floor(Math.random() * (max - min)) + min
@@ -44,10 +45,14 @@ function GameScreen({userNum, onGameOver}) {
         </View>
         <View style={styles.buttonContainer}>
             <View style={styles.button}>
-            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")} style={styles.button}>+</PrimaryButton>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")} style={styles.button}>
+                <Ionicons name="remove" size={24}/>
+            </PrimaryButton>
             </View>
             <View style={styles.button}>
-            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")} style={styles.button}>-</PrimaryButton>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")} style={styles.button}>
+                <Ionicons name="add" size={24}/>
+            </PrimaryButton>
             </View>
         </View>
     </View>
