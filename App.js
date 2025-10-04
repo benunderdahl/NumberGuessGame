@@ -32,10 +32,11 @@ export default function App() {
   function restartGameHandler() {
     setUserNumber(null)
     setRounds(0)
+    setGameOver(false)
   }
   let screen = <StartGameScreen onPick={pickedNumberHandler}/>
-  if (userNumber) {
-    screen = <GameScreen userNum={userNumber} onGameOver={gameOverHandler}/>
+  if (userNumber && !gameOver) {
+    screen = <GameScreen userNum={userNumber} onGameOver={gameOverHandler} />
   }
   if (gameOver) {
     screen = <GameOverScreen userNum={userNumber} rounds={rounds} onRestart={restartGameHandler} />

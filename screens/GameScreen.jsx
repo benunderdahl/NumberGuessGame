@@ -4,6 +4,7 @@ import Title from "../components/Title"
 import GameText from "../components/GameText"
 import PrimaryButton from "../components/PrimaryButton"
 import  Ionicons  from '@expo/vector-icons/Ionicons'
+import GuessLogItem from "../components/GuessLogItem"
 
 function generateRandomNumber(min, max, exclude) {
         const rand = Math.floor(Math.random() * (max - min)) + min
@@ -44,6 +45,7 @@ function GameScreen({userNum, onGameOver}) {
         setCompGuess(newRand)
         setGuessRounds(prev => [...prev, newRand])
     }
+    const guessRoundsLength = guessRounds.length
     return <View style={styles.container}>
         <Title>Opponent's Guess</Title>
         <GameText>{compGuess}</GameText>
@@ -62,9 +64,11 @@ function GameScreen({userNum, onGameOver}) {
             </PrimaryButton>
             </View>
         </View>
+        <View style={styles.flatListContainer}>
         <FlatList data={guessRounds} renderItem={(itemData) => {
-            <Text>{itemData.item}</Text>
-        }} keyExtractor={(item) => item}/>
+            return <GuessLogItem roundNumber={guessRoundsLength - itemData.index} guess={itemData.item}/>
+        }} keyExtractor={(item) => item }/>
+        </View>
     </View>
 }
 
@@ -88,6 +92,19 @@ const styles = StyleSheet.create({
     button: {
         width: 100,
         marginHorizontal: 10,
+    },
+    flatListContainer: {
+        flex: 1,
+        padding: 15,
+        borderWidth: 1,
+        padding: 10,
+        marginVertical: 5,
+        borderRadius: 10,
+
+    },
+    textContainer: {
+        justifyContent: 'center',
+        textAlign: 'center'
     }
     
 })
